@@ -1,22 +1,91 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>[Deal 0 đồng] Đa chức năng 3 trong 1, loa Bluetooth, sạc kho báu và giá đỡ iPad, tích hợp sạc, hỗ trợ chống trượt, có thể gập lại | Shopee Việt Nam</title>
-  
-  <!-- Open Graph Meta Tags -->
-  
-  <meta property="og:url" content="https://s.shopee.vn/30f2zjdzkl" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="" />
-  <meta property="og:description" content="" />
-  <meta property="og:image" content="https://down-vn.img.susercontent.com/file/promo-dim-0100ddd6215eb2f271627404ba5f858daf8c" />
-  <meta property="og:image:alt" content="" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go to Link</title>
 
-  <!-- Redirect ngay lập tức -->
-  <meta http-equiv="refresh" content="0; url=https://s.shopee.vn/30f2zjdzkl" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f5f5;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      gap: 10px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 350px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
-  <p>Nếu bạn không được tự động chuyển, vui lòng <a href="">bấm vào đây</a>.</p>
+
+  <div class="container">
+    <input
+      type="text"
+      id="urlInput"
+      placeholder="Nhập link... ví dụ google.com"
+    />
+    <button onclick="goToLink()">Go</button>
+  </div>
+
+  <script>
+    function goToLink() {
+      let url = document.getElementById("urlInput").value.trim();
+
+      if (!url) {
+        alert("Vui lòng nhập link");
+        return;
+      }
+
+      // Tự thêm https:// nếu thiếu
+      if (!/^https?:\/\//i.test(url)) {
+        url = "https://" + url;
+      }
+
+      window.location.href = url;
+    }
+
+    // Nhấn Enter để Go
+    document
+      .getElementById("urlInput")
+      .addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          goToLink();
+        }
+      });
+  </script>
+
 </body>
 </html>
