@@ -6,58 +6,105 @@
   <title>Go to Link</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background: #f5f5f5;
-      margin: 0;
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      padding: 20px;
     }
 
     .container {
+      width: 100%;
+      max-width: 500px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .input-group {
       display: flex;
       gap: 10px;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     input {
-      width: 350px;
-      padding: 12px;
+      flex: 1;
+      min-width: 0;
+      padding: 14px 16px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
       outline: none;
+      transition: 0.2s ease;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 4px rgba(0,123,255,0.1);
     }
 
     button {
-      padding: 12px 20px;
-      font-size: 16px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 12px;
       background: #007bff;
       color: white;
+      padding: 14px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: 0.2s ease;
     }
 
     button:hover {
       opacity: 0.9;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      .container {
+        padding: 16px;
+        border-radius: 14px;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      input,
+      button {
+        width: 100%;
+      }
+
+      button {
+        padding: 16px;
+        font-size: 17px;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <input
-      type="text"
-      id="urlInput"
-      placeholder="Nhập link... ví dụ google.com"
-    />
-    <button onclick="goToLink()">Go</button>
+    <div class="input-group">
+      <input
+        type="text"
+        id="urlInput"
+        placeholder="Nhập link... ví dụ google.com"
+      />
+      <button onclick="goToLink()">Go</button>
+    </div>
   </div>
 
   <script>
@@ -80,7 +127,7 @@
     // Nhấn Enter để Go
     document
       .getElementById("urlInput")
-      .addEventListener("keypress", function(event) {
+      .addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
           goToLink();
         }
